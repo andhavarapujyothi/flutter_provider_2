@@ -10,6 +10,7 @@ class CartProvider extends ChangeNotifier {
     cartvalue += itemModel.price!;
 
     notifyListeners();
+    // ignore: avoid_print
     print('Added to cart');
   }
 }

@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_2/cart_provider.dart';
 import 'package:flutter_provider_2/cart_screen.dart';
+import 'package:flutter_provider_2/date_time_provider.dart';
 import 'package:flutter_provider_2/item_model.dart';
 import 'package:provider/provider.dart';
 
@@ -25,6 +28,11 @@ class _MyCatalogState extends State<MyCatalog> {
   void initState() {
     preparemenu();
     cartProvider = Provider.of<CartProvider>(context, listen: false);
+    var timeDateprovider =
+        Provider.of<DateTimeProvider>(context, listen: false);
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      timeDateprovider.upadateTimeDate();
+    });
     super.initState();
   }
 
@@ -64,6 +72,14 @@ class _MyCatalogState extends State<MyCatalog> {
           );
         },
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: ElevatedButton(
+          onPressed: () {},
+          child: Consumer<DateTimeProvider>(
+            builder: (context, value, child) {
+              return Text('Date:${value.datetime}');
+            },
+          )),
     );
   }
 }

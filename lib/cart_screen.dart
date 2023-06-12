@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_provider_2/cart_provider.dart';
+
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatefulWidget {
@@ -15,10 +17,11 @@ class _CartScreenState extends State<CartScreen> {
       appBar: AppBar(
         title: const Text('Cart Screen'),
       ),
-      body: Consumer(builder: (context, data, child) {
+      body: Consumer<CartProvider>(builder: (context, data, child) {
         return ListView.builder(
           itemCount: data.mycartitemslist.length,
           itemBuilder: (context, index) {
+            // ignore: unnecessary_null_comparison, unrelated_type_equality_checks
             return data.mycartitemslist == null || data.mycartitemslist == 0
                 ? const Text('no items in the cart')
                 : Card(
@@ -34,6 +37,11 @@ class _CartScreenState extends State<CartScreen> {
           },
         );
       }),
+      floatingActionButton: Consumer<CartProvider>(
+        builder: (context, value, child) {
+          return Text('Cart Total:${value.cartvalue}');
+        },
+      ),
     );
   }
 }
