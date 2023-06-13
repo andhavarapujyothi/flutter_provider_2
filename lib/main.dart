@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_2/cart_provider.dart';
-import 'package:flutter_provider_2/catalog.dart';
+//import 'package:flutter_provider_2/catalog.dart';
+import 'package:flutter_provider_2/list_view_biulder_eg.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_provider_2/date_time_provider.dart';
 
@@ -25,10 +26,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-          //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          //useMaterial3: true,
-          ),
-      home: const MyCatalog(),
+        scrollbarTheme: ScrollbarThemeData(
+            trackVisibility: MaterialStateProperty.all(false),
+            thickness: MaterialStateProperty.all(10),
+            thumbColor: MaterialStateProperty.all(Colors.blueAccent)),
+        //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        //useMaterial3: true,
+      ),
+      home: const MyList(),
     );
   }
 }

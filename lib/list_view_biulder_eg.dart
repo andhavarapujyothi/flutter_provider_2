@@ -16,17 +16,21 @@ class _MyListState extends State<MyList> {
       appBar: AppBar(
         title: const Text('Catalog'),
       ),
-      body: ListView.builder(
-        itemCount: person.length,
-        itemBuilder: (context, index) {
-          return Card(
-            child: ListTile(
-              leading: const Icon(Icons.person),
-              trailing: const Icon(Icons.call),
-              title: Text(person[index + 1]),
-            ),
-          );
-        },
+      body: Scrollbar(
+        thumbVisibility: true,
+        showTrackOnHover: true,
+        child: ListView.builder(
+          itemCount: person.length,
+          itemBuilder: (context, index) {
+            return Card(
+              child: ListTile(
+                leading: const Icon(Icons.person),
+                trailing: const Icon(Icons.call),
+                title: Text(person[index + 1]),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
