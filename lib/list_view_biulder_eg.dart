@@ -18,13 +18,15 @@ class _MyListState extends State<MyList> {
       ),
       body: Scrollbar(
         thumbVisibility: true,
-        showTrackOnHover: true,
         child: ListView.builder(
           itemCount: person.length,
           itemBuilder: (context, index) {
             return Card(
+              elevation: 2,
               child: ListTile(
-                leading: const Icon(Icons.person),
+                leading: CircleAvatar(
+                  child: Text('${index + 1}'),
+                ),
                 trailing: const Icon(Icons.call),
                 title: Text(person[index + 1]),
               ),
