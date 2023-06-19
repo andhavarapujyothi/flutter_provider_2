@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_2/cart_provider.dart';
-import 'package:flutter_provider_2/material_banner.dart';
+import 'package:flutter_provider_2/catched_network_image.dart';
+
 import 'package:provider/provider.dart';
 import 'package:flutter_provider_2/date_time_provider.dart';
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         //useMaterial3: true,
       ),
-      home: const MaterialBannerScreen(),
+      home: const CatchedImageScreen(),
     );
   }
 }

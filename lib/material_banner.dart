@@ -16,7 +16,7 @@ class MaterialBannerScreen extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {
                   MaterialBanner materialBanner = MaterialBanner(
-                      leading: Icon(Icons.search),
+                      leading: const Icon(Icons.search),
                       backgroundColor: Colors.amberAccent,
                       content: const Text('I am the new banner'),
                       actions: [
